@@ -1,0 +1,7 @@
+{
+    "require": {
+        "zendframework/zendframework1": "1.*",
+        "sdis62/toolbox": "dev-master",
+        "doctrine/orm": "2.*"
+    }
+}

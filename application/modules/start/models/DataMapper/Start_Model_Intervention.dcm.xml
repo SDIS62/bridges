@@ -1,0 +1,31 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                    http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="Start_Model_Intervention" table="INTERVENTION" >
+    
+        <id name="id" type="string" column="NUM_INTERVENTION" />
+        <id name="year" type="integer" column="ANNEE_INTER" />
+        
+        <field name="date_declenchement" type="datetime" column="DH_DEBUT_INTER" />
+        <field name="location_rue" type="string" column="LIEU_INTER" />
+        <field name="location_x" type="float" column="COORD_X" />
+        <field name="location_y" type="float" column="COORD_Y" />
+        <field name="description" type="string" column="OBS_SINISTRE" />
+        
+        <one-to-one field="sinistre" target-entity="Start_Model_Sinistre">
+            <join-column name="ID_SINISTRE" referenced-column-name="ID_SINISTRE" />
+        </one-to-one>
+        
+        <one-to-one field="centres_engages" target-entity="Start_Model_Centre">
+            <join-column name="NUMERO_CENTRE" referenced-column-name="NUMERO_CENTRE" />
+        </one-to-one>
+        
+        <one-to-one field="location_commune" target-entity="Start_Model_Commune">
+            <join-column name="NUMERO_COMMUNE" referenced-column-name="NUMERO_COMMUNE" />
+        </one-to-one>
+
+    </entity>
+
+</doctrine-mapping>

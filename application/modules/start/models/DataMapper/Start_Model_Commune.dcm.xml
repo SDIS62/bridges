@@ -1,0 +1,18 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                    http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="Start_Model_Commune" table="COMMUNE" >
+    
+        <id name="id" type="integer" column="NUMERO_COMMUNE" />
+
+        <field name="code_insee" type="integer" column="NUMERO_INSEE" />
+        
+        <one-to-one field="name" target-entity="Start_Model_NomCommune">
+            <join-column name="NUMERO_COMMUNE" referenced-column-name="NUMERO_COMMUNE" />
+        </one-to-one>
+
+    </entity>
+
+</doctrine-mapping>
